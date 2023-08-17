@@ -1,0 +1,53 @@
+%ic {
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+[class*="_icon-"] {
+  &:before {
+    @extend %ic;
+    display: block;
+  }
+}
+
+._icon-arrow-right:before {
+  content: "\e905";
+}
+._icon-arrow-left:before {
+  content: "\e906";
+}
+._icon-mail:before {
+  content: "\e907";
+}
+._icon-star:before {
+  content: "\e908";
+}
+._icon-copyright:before {
+  content: "\e900";
+}
+._icon-facebook:before {
+  content: "\e901";
+}
+._icon-twitter:before {
+  content: "\e902";
+}
+._icon-phone:before {
+  content: "\e903";
+}
+._icon-location:before {
+  content: "\e904";
+}
+._icon-enlarge:before {
+  content: "\e989";
+}
+._icon-shrink:before {
+  content: "\e98a";
+}
+._icon-refresh:before {
+  content: "\ea2e";
+}

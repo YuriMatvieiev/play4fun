@@ -1,0 +1,133 @@
+//========================================================================================================================================================
+.games {
+  background-color: #25002e;
+}
+
+.games-popular {
+  background: url("@img/browse-games/bg.png") 0 0 / contain no-repeat;
+
+  @include adaptiveValue("padding-top", 120, 110);
+  padding-bottom: 40px;
+
+  // .games-popular__container
+  &__container {
+  }
+  // .games-popular__title
+  &__title {
+    font-size: rem(24);
+    line-height: math.div(28, 24);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: rem(20);
+  }
+  // .games-popular__subtitle
+  &__subtitle {
+    text-align: center;
+    line-height: math.div(20, 16);
+    text-align: center;
+    max-width: rem(780);
+    margin: 0 auto 40px;
+  }
+  // .games-popular__body
+  &__body {
+    &:not(:last-child) {
+      margin-bottom: rem(40);
+    }
+  }
+  // .games-popular__games-title
+  &__games-title {
+    font-weight: 500;
+    font-size: rem(24);
+    line-height: math.div(28, 24);
+    text-transform: uppercase;
+    @include adaptiveValue("margin-bottom", 40, 20);
+    @media (max-width: $mobile) {
+      text-align: center;
+    }
+  }
+  // .games-popular__items
+  &__items {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  // .games-popular__item
+  &__item {
+    /* @include adaptiveValue("width", 180, 150); */
+    width: calc(100% / 6 - 17px);
+    @media (max-width: $mobile) {
+      width: calc(100% / 3 - 14px);
+    }
+    @media (max-width: $mobileSmall) {
+      width: calc(100% / 2 - 10px);
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        .games-popular__item-name {
+          text-decoration: underline;
+          transition: all 0.3s ease 0s;
+        }
+        .games-popular__item-img {
+          transform: scale(1.05);
+          transition: all 0.3s ease 0s;
+        }
+      }
+    }
+  }
+  // .games-popular__item-img
+  &__item-img {
+    width: 100%;
+    border-radius: 6px;
+  }
+  // .games-popular__item-name
+  &__item-name {
+    font-weight: 500;
+    text-transform: capitalize;
+    @include adaptiveValue("margin-top", 20, 10);
+  }
+  &__pages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: rem(40);
+    li {
+      padding: 10px 16px;
+      color: rgba(235, 235, 235, 0.2);
+      font-size: rem(24);
+      line-height: math.div(28, 24);
+      font-weight: 500;
+      cursor: pointer;
+      width: rem(48);
+      height: rem(48);
+      text-align: center;
+      @media (any-hover: hover) {
+        &:hover {
+          color: #b52ae5;
+          transition: all 0.3s ease 0s;
+        }
+      }
+      &.active {
+        background: #b52ae5;
+        border-radius: 50px;
+        color: #ffffff;
+        width: rem(48);
+        height: rem(48);
+        text-align: center;
+      }
+    }
+    span {
+      color: #ffffff;
+      width: rem(48);
+      height: rem(48);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: rem(40);
+      cursor: pointer;
+      &.inactive {
+        color: rgba(235, 235, 235, 0.2);
+      }
+    }
+  }
+}

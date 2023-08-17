@@ -1,0 +1,116 @@
+//========================================================================================================================================================
+
+.game {
+  background: url("@img/browse-games/bg.png") 0 0 / auto no-repeat;
+
+  @include adaptiveValue("padding-top", 120, 110);
+  padding-bottom: 40px;
+  // .game__container
+  &__container {
+  }
+  // .game__header
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  // .game__name
+  &__name {
+    font-size: rem(24);
+    line-height: math.div(28, 24);
+    font-weight: 500;
+    text-transform: capitalize;
+    @media (max-width: $mobile) {
+      text-align: center;
+    }
+  }
+  // .game__rating
+  &__rating {
+    display: flex;
+    gap: 10px;
+    ul {
+      display: flex;
+      gap: 5px;
+      li {
+        color: #f2d12c;
+        cursor: pointer;
+        @media (any-hover: hover) {
+          &:hover {
+            color: #fae57c;
+            transition: all 0.3s ease 0s;
+          }
+        }
+      }
+    }
+  }
+  // .game__votes
+  &__votes {
+    line-height: math.div(20, 16);
+    color: #cccccc;
+    &-mobile {
+      display: none;
+      @media (max-width: $mobile) {
+        margin-top: rem(20);
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+  }
+  // .game__wrap
+  &__wrap {
+    /* width: 1180px;
+    height: 768px; */
+    margin-top: rem(20);
+    @include adaptiveValue("width", 1180, 320);
+    @include adaptiveValue("height", 768, 210);
+    position: relative;
+
+    &.game__full {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 50;
+      margin-top: 0;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__resize {
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    font-size: rem(30);
+    cursor: pointer;
+  }
+  &__refresh {
+    position: absolute;
+    top: 30px;
+    left: 10px;
+    font-size: rem(30);
+    cursor: pointer;
+  }
+  // .game__info
+  &__info {
+    margin: rem(40) 0;
+    max-width: rem(780);
+    p {
+      line-height: math.div(20, 16);
+      &:not(:last-child) {
+        margin-bottom: rem(20);
+      }
+    }
+  }
+  // .game__info-title
+  &__info-title {
+    font-weight: 500;
+    font-size: rem(24);
+    line-height: math.div(28, 24);
+    text-transform: uppercase;
+    margin-bottom: rem(20);
+  }
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  @@include('html/_head.htm',{ "title":"Contact Us" })
+  <body>
+    <div class="wrapper">
+      @@include('html/_header.htm',{})
+
+      <main class="page games">
+        <section class="game contacts">
+          <div class="contacts__container">
+            <div class="contacts__title">Contact Us</div>
+            <div class="contacts__subtitle">
+              We can't solve your problem if you don't tell us about it!
+            </div>
+            <div class="contacts__body">
+              <div class="contacts__left">
+                <ul class="contacts__details">
+                  <li class="contacts__detail">
+                    <a class="_icon-phone" href="tel:(000-999-9329)"
+                      >(000-999-9329)</a
+                    >
+                  </li>
+                  <li class="contacts__detail">
+                    <a class="_icon-mail" href="mailto:play4fun@example.com"
+                      >play4fun@example.com</a
+                    >
+                  </li>
+                  <li class="contacts__detail _icon-location">
+                    4140 Parker Rd. Allentown, New Mexico 31134
+                  </li>
+                  <li class="contacts__socials">
+                    <a class="_icon-twitter" href="#"></a>
+                    <a class="_icon-facebook" href="#"></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="contacts__right">
+                <form action="thankyou.html" class="contacts__form">
+                  <input
+                    type="text"
+                    placeholder="Enter your full name"
+                    name="name"
+                    id="name"
+                    required
+                  />
+                  <input
+                    type="email"
+                    placeholder="Enter your email address"
+                    name="email"
+                    id="email"
+                    required
+                  />
+
+                  <textarea
+                    required
+                    name="message"
+                    placeholder="Type your message here"
+                    id="message"
+                    rows="7"
+                  ></textarea>
+                  <button class="contacts__button main-button" type="submit">
+                    send message
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="main-action">
+          <div class="main-action__container">
+            <h3 class="main-action__title">Enjoy One Click Play!</h3>
+            <a class="main-action__button main-button" href="#">Browse Games</a>
+          </div>
+        </section>
+      </main>
+      <div class="popup">
+        <div class="popup__wrap">
+          <div class="popup__title">AGE VERIFICATION</div>
+          <div class="popup__subtitle">
+            Are you over 18? <br />
+            Please confirm.
+          </div>
+          <a class="popup__button main-button">Yes, I am over 18!</a>
+        </div>
+      </div>
+      @@include('html/_footer.htm',{})
+    </div>
+    @@include('html/_js.htm',{})
+  </body>
+</html>

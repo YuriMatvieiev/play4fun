@@ -1,0 +1,21 @@
+// Заголовки, загальні БЕМ блоки та інше...
+.main-button {
+  padding: rem(16) rem(24);
+  font-weight: 500;
+  font-size: rem(24);
+  line-height: math.div(28, 24);
+  background: #b52ae5;
+  border-radius: 50px;
+  text-transform: uppercase;
+  @media (any-hover: hover) {
+    &:hover {
+      filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.06));
+      background: #d16ff3;
+      transition: all 0.3s ease 0s;
+    }
+  }
+  &:focus {
+    background: #8d02bd;
+    transition: all 0.3s ease 0s;
+  }
+}
