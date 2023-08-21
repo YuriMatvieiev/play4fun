@@ -78,6 +78,11 @@
   &__item-img {
     width: 100%;
     border-radius: 6px;
+    object-fit: fill;
+    @include adaptiveValue("height", 230, 120, 0, 1180, 767.98);
+    @media (max-width: $mobile) {
+      @include adaptiveValue("height", 290, 190, 0, 767.97, 360);
+    }
   }
   // .games-popular__item-name
   &__item-name {

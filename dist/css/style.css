@@ -1002,6 +1002,8 @@ body {
 .games-popular__item-img {
   width: 100%;
   border-radius: 6px;
+  -o-object-fit: fill;
+     object-fit: fill;
 }
 
 .games-popular__item-name {
@@ -1557,6 +1559,10 @@ body {
   .main-steps__title p {
     line-height: 4.6875rem;
   }
+
+  .games-popular__item-img {
+    height: 14.375rem;
+  }
 }
 
 @media (min-width: 80em) {
@@ -2048,6 +2054,10 @@ body {
     width: calc(33.3333333333% - 14px);
   }
 
+  .games-popular__item-img {
+    height: 7.5rem;
+  }
+
   .game__name {
     text-align: center;
   }
@@ -2139,6 +2149,10 @@ body {
 
   .main__coin-bottom {
     bottom: 0.625rem;
+  }
+
+  .games-popular__item-img {
+    height: 11.875rem;
   }
 }
 
@@ -3089,6 +3103,44 @@ body {
     .main-steps__title p {
       font-size: calc(
         2rem + 2 * (100vw - 40.625rem) / 33.125
+      );
+    }
+}
+}
+
+@media (min-width: 47.99875em) and (max-width: 73.75em) {
+@supports (height: clamp( 7.5rem , -5.3145781758rem  +  26.6977331198vw , 14.375rem )) {
+    .games-popular__item-img {
+      height: clamp( 7.5rem , -5.3145781758rem  +  26.6977331198vw , 14.375rem );
+    }
+}
+
+@supports not (height: clamp( 7.5rem , -5.3145781758rem  +  26.6977331198vw , 14.375rem )) {
+    .games-popular__item-img {
+      height: calc(
+        7.5rem + 6.875 * (100vw - 47.99875rem) / 25.75125
+      );
+    }
+}
+}
+
+@media (max-width: 47.99875em) and (min-width: 47.998125em) {
+  .games-popular__item-img {
+    height: 18.125rem;
+  }
+}
+
+@media (max-width: 47.99875em) and (min-width: 22.5em) and (max-width: 47.998125em) {
+@supports (height: clamp( 11.875rem , 6.3598885947rem  +  24.5116062456vw , 18.125rem )) {
+    .games-popular__item-img {
+      height: clamp( 11.875rem , 6.3598885947rem  +  24.5116062456vw , 18.125rem );
+    }
+}
+
+@supports not (height: clamp( 11.875rem , 6.3598885947rem  +  24.5116062456vw , 18.125rem )) {
+    .games-popular__item-img {
+      height: calc(
+        11.875rem + 6.25 * (100vw - 22.5rem) / 25.498125
       );
     }
 }
