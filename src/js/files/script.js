@@ -162,3 +162,12 @@ if (gameRefresh) {
     gameIframe.src = gameIframe.src; // Refresh the iframe by resetting its source
   });
 }
+
+// Знаходимо елемент з класом "game__votes"
+var votesElement = document.querySelector(".game__votes");
+if (votesElement) {
+  var randomVotes = Math.floor(Math.random() * (997 - 600 + 1)) + 600;
+
+  // Змінюємо текст елемента на згенероване випадкове число
+  votesElement.textContent = randomVotes + " votes";
+}

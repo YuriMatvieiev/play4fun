@@ -3712,6 +3712,11 @@
     if (gameRefresh) gameRefresh.addEventListener("click", (function() {
         gameIframe.src = gameIframe.src;
     }));
+    var votesElement = document.querySelector(".game__votes");
+    if (votesElement) {
+        var randomVotes = Math.floor(Math.random() * (997 - 600 + 1)) + 600;
+        votesElement.textContent = randomVotes + " votes";
+    }
     window["FLS"] = true;
     isWebp();
     menuInit();
