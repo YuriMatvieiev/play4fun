@@ -3828,74 +3828,6 @@
     }
     const da = new DynamicAdapt("max");
     da.init();
-    const gameItems = document.querySelectorAll(".games-popular__item.catalog");
-    const pagesContainer = document.querySelector(".games-popular__pages");
-    const prevPage = document.getElementById("prev-page");
-    const nextPage = document.getElementById("next-page");
-    if (prevPage || nextPage) {
-        const itemsPerPage = 24;
-        let currentPage = 1;
-        const totalPages = Math.ceil(gameItems.length / itemsPerPage);
-        function generatePageButtons() {
-            for (let i = 1; i <= totalPages; i++) {
-                const pageButton = document.createElement("li");
-                pageButton.textContent = i;
-                pageButton.classList.add(`page${i}`);
-                pagesContainer.insertBefore(pageButton, nextPage);
-            }
-        }
-        function showPage(page) {
-            const startIndex = (page - 1) * itemsPerPage;
-            const endIndex = startIndex + itemsPerPage;
-            for (let i = 0; i < gameItems.length; i++) if (i >= startIndex && i < endIndex) gameItems[i].style.display = "block"; else gameItems[i].style.display = "none";
-        }
-        pagesContainer.addEventListener("click", (event => {
-            const target = event.target;
-            if (target.tagName === "LI") {
-                const pageNumber = parseInt(target.textContent);
-                currentPage = pageNumber;
-                showPage(currentPage);
-                const pages = document.querySelectorAll(".games-popular__pages li");
-                pages.forEach((page => {
-                    page.classList.remove("active");
-                }));
-                target.classList.add("active");
-                updatePaginationButtons();
-            }
-        }));
-        generatePageButtons();
-        const initialPage = document.querySelector(".games-popular__pages li.page1");
-        initialPage.classList.add("active");
-        function updatePaginationButtons() {
-            prevPage.classList.toggle("inactive", currentPage === 1);
-            nextPage.classList.toggle("inactive", currentPage === totalPages);
-        }
-        prevPage.addEventListener("click", (() => {
-            if (currentPage > 1) {
-                currentPage--;
-                showPage(currentPage);
-                const pages = document.querySelectorAll(".games-popular__pages li");
-                pages.forEach(((page, index) => {
-                    if (index === currentPage - 1) page.classList.add("active"); else page.classList.remove("active");
-                }));
-                updatePaginationButtons();
-            }
-        }));
-        nextPage.addEventListener("click", (() => {
-            if (currentPage < totalPages) {
-                currentPage++;
-                showPage(currentPage);
-                const pages = document.querySelectorAll(".games-popular__pages li");
-                pages.forEach(((page, index) => {
-                    if (index === currentPage - 1) page.classList.add("active"); else page.classList.remove("active");
-                }));
-                updatePaginationButtons();
-            }
-        }));
-        showPage(currentPage);
-        prevPage.classList.add("inactive");
-        if (totalPages === 1) nextPage.classList.add("inactive");
-    }
     var currentUrl = window.location.href;
     var menuLinks = document.querySelectorAll(".menu__link");
     menuLinks.forEach((function(link) {
@@ -3924,26 +3856,35 @@
         votesElement.textContent = randomVotes + " votes";
     }
     document.addEventListener("DOMContentLoaded", (function() {
-        function checkAndDisplayMessage(sectionId, storageKey, successMessageId) {
-            var section = document.getElementById(sectionId);
-            if (section) {
-                var isCompleted = localStorage.getItem(storageKey);
-                if (isCompleted === "true") {
-                    document.getElementById(sectionId + "-wrap").style.display = "none";
-                    document.getElementById(successMessageId).style.display = "block";
-                }
-            }
+        const registerWrap = document.getElementById("register-wrap");
+        const registerMessage = document.getElementById("register-message");
+        function hideRegisterForm() {
+            registerWrap.style.display = "none";
+            registerMessage.style.display = "block";
+            localStorage.setItem("registrationStatus", "completed");
         }
-        function addSubmitListener(formId, storageKey) {
-            var form = document.getElementById(formId);
-            if (form) form.addEventListener("submit", (function(event) {
-                localStorage.setItem(storageKey, "true");
+        if (registerWrap) {
+            const registerForm = document.querySelector(".register__form");
+            if (registerForm) registerForm.addEventListener("submit", (function(event) {
+                event.preventDefault();
+                hideRegisterForm();
+            }));
+            if (localStorage.getItem("registrationStatus") === "completed") hideRegisterForm();
+        }
+        const loginForm = document.querySelector(".register__form.login");
+        if (loginForm) {
+            const popup = document.querySelector(".popup");
+            const popupButton = document.querySelector(".popup__button");
+            loginForm.addEventListener("submit", (function(event) {
+                event.preventDefault();
+                document.documentElement.classList.add("popup-open");
+                popup.style.display = "flex";
+            }));
+            popupButton.addEventListener("click", (function() {
+                document.documentElement.classList.remove("popup-open");
+                popup.style.display = "none";
             }));
         }
-        checkAndDisplayMessage("login", "isLogin", "login-message");
-        addSubmitListener("login-form", "isLogin");
-        checkAndDisplayMessage("register", "isRegister", "register-message");
-        addSubmitListener("register-form", "isRegister");
     }));
     window["FLS"] = true;
     isWebp();
