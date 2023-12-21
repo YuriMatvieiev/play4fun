@@ -350,7 +350,7 @@
       width: calc(50% - 8px);
     }
     @media (max-width: 550px) {
-      width: 100%;
+      width: 100% !important;
     }
     @media (any-hover: hover) {
       &:hover {

@@ -1866,7 +1866,7 @@ body {
 
 @media (max-width: 550px) {
   .credits__item {
-    width: 100%;
+    width: 100% !important;
   }
 }
 
