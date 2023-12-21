@@ -212,113 +212,184 @@
 
 //========================================================================================================================================================
 
-.dev {
-  // .dev__container
-  &__container {
-  }
-  // .dev__title
-  &__title {
-    font-weight: 900;
-    @include adaptiveValue("font-size", 64, 32);
-    @include adaptiveValue("line-height", 75, 38);
+.register {
+  min-height: calc(100vh - 82px);
+  &__message {
+    display: none;
     text-align: center;
-    margin-bottom: rem(10);
+    margin: 24px auto 0 auto;
+    font-size: 18px;
+    max-width: 800px;
+    line-height: 120%;
+    @media (max-width: $mobile) {
+      font-size: 16px;
+    }
   }
-  // .dev__subtitle
-  &__subtitle {
-    max-width: rem(580);
-    line-height: math.div(20, 16);
-    margin: 0 auto 20px;
-    text-align: center;
+  &__form {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 24px;
+    &.login {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .register__buttons {
+        width: calc(50% - 12px);
+        @media (max-width: $mobile) {
+          width: 100%;
+        }
+      }
+    }
+    @media (max-width: $mobile) {
+      flex-direction: column;
+    }
   }
-  &__list-block {
-    margin: 20px 0 30px;
-    padding: 20px 0 10px;
-    border-top: 1px solid rgba(235, 235, 235, 0.2);
-    border-bottom: 1px solid rgba(235, 235, 235, 0.2);
+  &__item {
+    width: calc(50% - 12px);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    @media (max-width: $mobile) {
+      width: 100%;
+    }
   }
-  // .dev__gradient-title
-  &__gradient-title {
-    background: radial-gradient(
-        88.05% 150.28% at 30.15% 39.82%,
-        #f2d12c 0%,
-        #ffffff 100%
-      )
-      #ffffff;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-    margin-bottom: rem(20);
-    text-transform: uppercase;
-    font-weight: 900;
-    @include adaptiveValue("font-size", 48, 24);
-    @include adaptiveValue("line-height", 56, 28);
-    text-align: center;
-  }
-  // .dev__list
-  &__list {
-    max-width: rem(580);
-    margin: 0 auto 20px;
-    li {
-      padding: 20px;
+  &__check {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    input {
+      position: absolute;
+      opacity: 0;
+      height: 0;
+      width: 0;
+      &:checked {
+        & ~ span {
+          &::after {
+            content: "";
+            width: 15px;
+            height: 15px;
+            border-radius: 100%;
+            background: #b52ae5;
+          }
+        }
+      }
+    }
+    span {
       display: flex;
       align-items: center;
-      gap: 28px;
-      @media (max-width: $mobileSmall) {
-        flex-direction: column;
-        justify-content: center;
-      }
-      img {
-        width: 100%;
-        height: 100%;
-        max-width: rem(80);
-        max-height: rem(80);
-      }
-    }
-  }
-  // .dev__list-text
-  &__list-text {
-    h6 {
-      margin-bottom: rem(10);
-      font-weight: 500;
-      font-size: rem(24);
-      line-height: math.div(28, 24);
-      text-transform: uppercase;
-      @media (max-width: $mobileSmall) {
-        text-align: center;
-      }
+      justify-content: center;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      background: rgba(235, 235, 235, 0.2);
+      border-radius: 6px;
     }
     p {
-      @media (max-width: $mobileSmall) {
-        text-align: center;
+      a {
+        color: #f2d12c;
+        @media (any-hover: hover) {
+          &:hover {
+            text-decoration: underline;
+          }
+        }
       }
     }
   }
-  form {
-    max-width: 780px;
-    margin: 40px auto 0;
-  }
-  &__checkbox {
+  &__buttons {
+    width: 100%;
     display: flex;
-    gap: 20px;
-    line-height: math.div(20, 16);
-    a {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    & .contacts__button {
+      align-self: center;
+      margin: 0;
+    }
+    p {
+      a {
+        color: #f2d12c;
+        @media (any-hover: hover) {
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+//========================================================================================================================================================
+
+.credits {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin: 24px 0 24px;
+  flex-wrap: wrap;
+
+  // .credits__item
+  &__item {
+    background: rgba(235, 235, 235, 0.2);
+    border-radius: 6px;
+    padding: 16px;
+    @include adaptiveValue("font-size", 20, 16);
+    line-height: 120%;
+    border: 1px solid transparent;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    transition: border 0.3s;
+    @media (max-width: $mobile) {
+      width: calc(50% - 8px);
+    }
+    @media (max-width: 550px) {
+      width: 100%;
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        border: 1px solid #fff;
+      }
+    }
+  }
+  // .credits__tag
+  &__tag {
+    background: radial-gradient(
+      88.05% 150.28% at 30.15% 39.82%,
+      #f2d12c 0%,
+      #ffffff 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 500;
+  }
+  // .credits__quantity
+  &__quantity {
+    color: #d16ff3;
+    font-weight: 600;
+    @include adaptiveValue("font-size", 22, 18);
+  }
+  // .credits__title
+  &__title {
+  }
+  // .credits__proffit
+  &__proffit {
+    display: flex;
+    flex-direction: column;
+    span {
+      font-weight: 600;
       color: #f2d12c;
     }
-
-    input[type="checkbox"] {
-      border: 1px solid #ffffff;
-      border-radius: 6px;
-      width: rem(20);
-      height: rem(20);
-      accent-color: #ebebeb33;
-    }
   }
+  // .credits__button
   &__button {
-    align-self: flex-start;
-    @media (max-width: $mobile) {
-      align-self: center;
-    }
+    font-size: 20px;
+    padding: 16px;
   }
 }

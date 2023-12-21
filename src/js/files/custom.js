@@ -1,4 +1,4 @@
-var isPopupVisible = true; // Set to true to show the popup by default
+var isPopupVisible = false; // Set to true to show the popup by default
 var isConfirmationCachingEnabled = true; // Set to true to enable caching
 
 document.addEventListener("DOMContentLoaded", function () {

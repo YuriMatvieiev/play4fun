@@ -163,11 +163,42 @@ if (gameRefresh) {
   });
 }
 
-// Знаходимо елемент з класом "game__votes"
 var votesElement = document.querySelector(".game__votes");
 if (votesElement) {
   var randomVotes = Math.floor(Math.random() * (997 - 600 + 1)) + 600;
 
-  // Змінюємо текст елемента на згенероване випадкове число
   votesElement.textContent = randomVotes + " votes";
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  function checkAndDisplayMessage(sectionId, storageKey, successMessageId) {
+    var section = document.getElementById(sectionId);
+    if (section) {
+      var isCompleted = localStorage.getItem(storageKey);
+      if (isCompleted === "true") {
+        document.getElementById(sectionId + "-wrap").style.display = "none";
+        document.getElementById(successMessageId).style.display = "block";
+      }
+    }
+  }
+
+  function addSubmitListener(formId, storageKey) {
+    var form = document.getElementById(formId);
+    if (form) {
+      form.addEventListener("submit", function (event) {
+        // Perform login or registration logic here
+
+        // Set the corresponding storage key to true
+        localStorage.setItem(storageKey, "true");
+      });
+    }
+  }
+
+  // Check and display login message
+  checkAndDisplayMessage("login", "isLogin", "login-message");
+  addSubmitListener("login-form", "isLogin");
+
+  // Check and display registration message
+  checkAndDisplayMessage("register", "isRegister", "register-message");
+  addSubmitListener("register-form", "isRegister");
+});

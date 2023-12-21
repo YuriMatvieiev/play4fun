@@ -39,7 +39,7 @@
   }
   // .main__title
   &__title {
-    @include adaptiveValue("max-width", 500, 350, 0, 1180, 768);
+    max-width: 600px;
     font-weight: 900;
 
     margin-bottom: rem(60);

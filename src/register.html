@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  @@include('html/_head.htm',{ "title":"Register" })
+  <body>
+    <div class="wrapper">
+      @@include('html/_header.htm',{})
+
+      <main class="page games">
+        <section id="register" class="game contacts register">
+          <div class="contacts__container">
+            <div class="contacts__title">Register</div>
+            <div id="register-wrap" class="register__wrap">
+              <div class="contacts__subtitle">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum
+                sapiente ab sed placeat doloremque quis doloribus cum magnam
+                impedit ipsa!
+              </div>
+              <div class="contacts__body">
+                <form id="register-form" class="contacts__form register__form">
+                  <div class="register__item">
+                    <label for="first-name">First name</label>
+                    <input
+                      type="text"
+                      placeholder="Your name"
+                      name="first-name"
+                      id="first-name"
+                      required
+                    />
+                  </div>
+                  <div class="register__item">
+                    <label for="last-name">Last name</label>
+                    <input
+                      type="text"
+                      placeholder="Your surname"
+                      name="last-name"
+                      id="last-name"
+                      required
+                    />
+                  </div>
+                  <div class="register__item">
+                    <label for="email">E-mail</label>
+                    <input
+                      type="email"
+                      placeholder="Your e-mail"
+                      name="email"
+                      id="email"
+                      required
+                    />
+                  </div>
+                  <div class="register__item">
+                    <label for="birthdate">Birthdate</label>
+                    <input
+                      type="text"
+                      placeholder="DD/MM/YYYY"
+                      name="birthdate"
+                      id="birthdate"
+                      required
+                    />
+                  </div>
+                  <div class="register__item">
+                    <label for="phone">Phone number</label>
+                    <input
+                      type="text"
+                      placeholder="Your phone number"
+                      name="phone"
+                      id="phone"
+                      required
+                    />
+                  </div>
+                  <div class="register__item">
+                    <label for="country">Country</label>
+                    <input
+                      type="text"
+                      placeholder="Choose your country"
+                      name="country"
+                      id="country"
+                      required
+                    />
+                  </div>
+                  <div class="register__item">
+                    <label for="password">Password</label>
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      name="password"
+                      id="password"
+                      required
+                    />
+                  </div>
+                  <div class="register__item">
+                    <label for="confirm-password">Confirm password</label>
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      name="confirm-password"
+                      id="confirm-password"
+                      required
+                    />
+                  </div>
+                  <label for="terms" class="register__check">
+                    <input type="checkbox" name="terms" id="terms" required />
+                    <span></span>
+                    <p>I accept <a href="terms.html">terms of use</a></p>
+                  </label>
+                  <div class="register__buttons">
+                    <button class="contacts__button main-button" type="submit">
+                      Register
+                    </button>
+                    <p>
+                      Already have an account? <a href="login.html">Log In!</a>
+                    </p>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <p id="register-message" class="register__message">
+              New accounts must be approved by an Administrator. Mostly this
+              will be done within 24-48 hours. Please keep an eye on your Inbox
+              (And spam folder)
+            </p>
+          </div>
+        </section>
+      </main>
+      <div class="popup">
+        <div class="popup__wrap">
+          <div class="popup__title">AGE VERIFICATION</div>
+          <div class="popup__subtitle">
+            Are you over 18? <br />
+            Please confirm.
+          </div>
+          <a class="popup__button main-button">Yes, I am over 18!</a>
+        </div>
+      </div>
+    </div>
+    @@include('html/_js.htm',{})
+  </body>
+</html>

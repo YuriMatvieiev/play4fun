@@ -41,6 +41,7 @@
   &__list {
     display: flex;
     gap: 60px;
+    @include adaptiveValue("gap", 60, 20, 0, 1180, 767.98);
     font-weight: 500;
   }
   // .menu__item
@@ -120,7 +121,7 @@
   .header {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    height: rem(219);
+    height: rem(300);
     transition: all 0.3s ease 0s;
   }
   .menu__body {
